@@ -10,5 +10,11 @@ return [
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
+        'logger' => [
+            'class' => 'core\log\Logger',
+            'tableConfig' => [
+                'filename' => '@common/config/main/logger',
+            ],
+        ],
     ],
 ];
