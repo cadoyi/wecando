@@ -19,7 +19,21 @@ return [
         'fixture' => [
             'class' => 'yii\console\controllers\FixtureController',
             'namespace' => 'common\fixtures',
-          ],
+        ],
+        'migrate' => [
+            'class' => 'yii\console\controllers\MigrateController',
+            'migrationPath' => [
+                '@app/migrations',
+            ],
+            'templateFile' =>  '@core/db/migrate/views/migration.php',
+            'generatorTemplateFiles' => [
+                'create_table'    => '@core/db/migrate/views/createTableMigration.php',
+                'drop_table'      => '@core/db/migrate/views/dropTableMigration.php',
+                'add_column'      => '@core/db/migrate/views/addColumnMigration.php',
+                'drop_column'     => '@core/db/migrate/views/dropColumnMigration.php',
+                'create_junction' => '@core/db/migrate/views/createTableMigration.php',
+            ],
+        ],
     ],
     'components' => [
         'log' => [
