@@ -77,6 +77,36 @@ class SiteController extends Controller
         return $this->render('index');
     }
 
+
+
+    public function actionTest()
+    {
+        $xml = [
+            'ToUserName'   => 'from',
+            'FromUserName' => 'to',
+            'CreateTime'   => time(),
+            'MsgType'      => 'text',
+            'Content'      => '测试文本',
+            'Articles' => [
+                [
+                    'Title' => '第一个',
+                    'Description' => '第一个描述',
+                ],
+                [
+                    'Title' => '第二个',
+                    'Description' => '第二个描述',
+                ],
+            ]
+        ];
+        $response = Yii::$app->response;
+        $xmlFormatter = $response->formatters['xml'];
+        if (is_object($xmlFormatter)) {
+            $xmlFormatter->rootTag = 'xml';
+        } else {
+            $response->formatters['xml']['rootTag'] = 'xml';
+        }
+        return $this->asXml($xml);
+    }
     /**
      * Logs in a user.
      *

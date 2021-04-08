@@ -11,6 +11,7 @@ return [
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'controllerNamespace' => 'frontend\controllers',
+    'modules' => require __DIR__ . '/modules/modules.php',
     'components' => [
         'request' => [
             'csrfParam' => '_csrf-frontend',
@@ -36,14 +37,23 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
-        /*
+        'wxpub' => [
+            'class' => 'wxapi\pub\Server',
+            'redis' => 'redis',
+            'config' => [
+                'appid'      => 'wx9cedaa12bde60bce', 
+                'appsecret'  => '381779ba5dba11dc5cc82218df3df352',
+                'token'      => 'thisistokenforme',
+            ],
+        ],
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
+            'suffix' => '.html',
             'rules' => [
             ],
         ],
-        */
+        
     ],
     'params' => $params,
 ];

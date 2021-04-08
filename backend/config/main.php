@@ -11,7 +11,15 @@ return [
     'basePath' => dirname(__DIR__),
     'controllerNamespace' => 'backend\controllers',
     'bootstrap' => ['log'],
-    'modules' => [],
+    'modules' => require __DIR__ . '/modules/modules.php',
+    'modules' => [
+        'admin' => [
+            'controllerMap' => [
+                'account' => 'backend\controllers\admin\AccountController',
+            ],
+            'viewPath' => '@backend/views/admin',
+        ],
+    ],
     'components' => [
         'request' => [
             'csrfParam' => '_csrf-backend',
@@ -37,14 +45,15 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
-        /*
+        
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
+            'suffix' => '.html',
             'rules' => [
             ],
         ],
-        */
+    
     ],
     'params' => $params,
 ];

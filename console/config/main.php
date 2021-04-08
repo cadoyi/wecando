@@ -15,6 +15,7 @@ return [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
     ],
+    'modules' => require __DIR__ . '/modules/modules.php',
     'controllerMap' => [
         'fixture' => [
             'class' => 'yii\console\controllers\FixtureController',
