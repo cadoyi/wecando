@@ -24,7 +24,7 @@ class Image extends Base
      * 发送图片消息
      *
      * @param string $mediaID  图片的媒体 ID 值
-     * @return bool
+     * @return \wxapi\pub\base\Result
      */
     public function run( $mediaID )
     {
@@ -36,7 +36,7 @@ class Image extends Base
             ],
         ];
         $this->sendMessage($content);
-        return !$this->hasError();
+        return $this->result;
     }
     
 }

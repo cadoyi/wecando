@@ -18,7 +18,7 @@ class MenuServer extends Component
      * 创建自定义菜单
      *
      * @param array $menus 自定义菜单条目
-     * @return bool
+     * @return \wxapi\pub\base\Result
      */
     public function create( $menus )
     {
@@ -31,7 +31,7 @@ class MenuServer extends Component
     /**
      * 删除自定义菜单
      *
-     * @return bool 
+     * @return \wxapi\pub\base\Result
      */
     public function delete()
     {
@@ -46,7 +46,7 @@ class MenuServer extends Component
     /**
      * 获取自定义菜单配置
      *
-     * @return array|false
+     * @return \wxapi\pub\base\Result
      */
     public function get()
     {
@@ -60,7 +60,7 @@ class MenuServer extends Component
     /**
      * 获取当前自定义菜单配置项
      *
-     * @return array
+     * @return \wxapi\pub\base\Result
      */
     public function current()
     {

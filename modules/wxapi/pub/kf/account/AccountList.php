@@ -25,7 +25,7 @@ class AccountList extends Api
     /**
      * 获取所有客服列表
      *
-     * @return \wxapi\pub\httpclient\Data
+     * @return \wxapi\pub\base\Result
      * 
      * {
      *      "kf_list": [
@@ -56,7 +56,7 @@ class AccountList extends Api
              ->setUrl($url)
              ->send();
         
-        return $this->getData();
+        return $this->result;
     }
 
 

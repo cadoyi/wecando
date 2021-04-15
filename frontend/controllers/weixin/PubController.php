@@ -25,14 +25,15 @@ class PubController extends Controller
     public function actionCallback()
     {
         $echostr = $this->getServer()->getEchoStr();
-        if(!Yii::$app->request->isPost && is_string($echostr)) {
+        if (!Yii::$app->request->isPost && is_string($echostr)) {
             return $echostr;
         }
         if ($echostr === false) {
             return $this->notFound();
         }
         $request = $this->getServer()->getRequest();
-        echo 'success';die;
+        echo 'success';
+        die;
 
         //Yii::error(->getRawData());
     }
@@ -82,9 +83,68 @@ class PubController extends Controller
             ]
         ];
 
+        $menus = '{
+            "button": [
+                {
+                    "name": "官方商城",
+                    "sub_button": [
+                        {
+                            "type": "view",
+                            "name": "官方商城",
+                            "url": "https://mall.telunsu.net/telunsu/himilk/product/index.html?vcome=wxmenu"
+                        },
+                        {
+                            "type": "view",
+                            "name": "特心意",
+                            "url": "https://mc.telunsu.net/grazing/indexMc"
+                        }
+                    ]
+                },
+                {
+                    "name": "会员社区",
+                    "sub_button":  [
+                        {
+                            "type": "view",
+                            "name": "会员社区",
+                            "url": "https://mall.telunsu.net/telunsu/himilk/vip/vipCommunity.html"
+                        },
+                        {
+                            "type": "view",
+                            "name": "专属云「牧场」",
+                            "url": "https://mc.telunsu.net/grazing/indexMc"
+                        }
+                    ]
+                },
+                {
+                    "name": "名仕中心",
+                    "sub_button":  [
+                        {
+                            "type": "view",
+                            "name": "个人中心",
+                            "url": "https://mall.telunsu.net/telunsu/himilk/user/index.html"
+                        },
+                        {
+                            "type": "view",
+                            "name": "我要提货",
+                            "url": "https://mall.telunsu.net/telunsu/himilk/user/getGoods.html"
+                        },
+                        {
+                            "type": "click",
+                            "name": "客服中心",
+                            "key": "help_center"
+                        }
+                    ]
+                    
+                }
+            ]
+        }';
+        $menus = \yii\helpers\Json::decode($menus);
+        // var_dump($menus);die;
         $result = $this->getServer()->menu()->create($menus);
-        
-        var_dump($result);
+        if($result->isOk()) {
+            return '操作成功!';
+        }
+        return '操作失败, [' . $result->code . ']' . $result->message;
     }
 
 

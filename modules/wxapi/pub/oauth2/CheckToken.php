@@ -39,7 +39,7 @@ class CheckToken extends Component
     /**
      * 执行操作
      *
-     * @return \wxapi\pub\httpclient\Data
+     * @return \wxapi\pub\base\Result
      *  
      * 成功返回:
      *     { "errcode":0,"errmsg":"ok"}
@@ -58,7 +58,7 @@ class CheckToken extends Component
              ->setMethod('GET')
              ->setUrl($url)
              ->send();
-        return $this->getData();
+        return $this->result;
     }
     
 

@@ -29,7 +29,7 @@ class TagUpdate extends Component
      *
      * @param string $name 新的名称
      * @param string $id   标签 ID
-     * @return bool
+     * @return \wxapi\pub\base\Result
      */
     public function run($name, $id)
     {
@@ -47,7 +47,7 @@ class TagUpdate extends Component
              ->setContent($content)
              ->send();
 
-        return !$this->hasError();
+        return $this->result;
     }
 
 }

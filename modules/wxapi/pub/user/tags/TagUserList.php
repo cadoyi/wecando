@@ -29,7 +29,7 @@ class TagUserList extends Component
      * @param string $tagID 标签 ID
      * @param string|null 上一次返回的 next_openid, 如果第一次拉取,则填 null
      * 
-     * @return \wxapi\pub\httpclient\Data
+     * @return \wxapi\pub\base\Result
      *    [
      *         'count' => 2,    // 本次获取的粉丝数量
      *         'data' => [
@@ -57,7 +57,7 @@ class TagUserList extends Component
             ->setContent($content)
             ->send();
         
-        return $this->getData();
+        return $this->result;
     }
 
     

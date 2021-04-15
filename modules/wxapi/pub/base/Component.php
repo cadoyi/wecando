@@ -14,6 +14,7 @@ use yii\base\InvalidConfigException;
  * 微信公众号基本组件
  * 
  * @property Config $config 
+ * @property Result $result
  *
  * @author zhangyang <zhangyang@cadoyi.com>
  */
@@ -41,6 +42,12 @@ class Component extends APIComponent
      * @var \yii\httpclient\Response
      */
     protected $_response;
+
+
+    /**
+     * @var Result 
+     */
+    protected $_result;
 
 
 
@@ -114,6 +121,12 @@ class Component extends APIComponent
     {
         $this->_request = $request;
         $this->_response = $response;
+        $this->_result = new Result([
+            'response' => $response,
+            'request'  => $request,
+            'api'      => $this,
+            'server'   => $this->server,
+        ]);
     }
 
 
@@ -143,10 +156,13 @@ class Component extends APIComponent
      * @param Response $response
      * @return array
      */
-    public function getErrorCode()
+    public function getErrorCode( $response = null )
     {
-        if($this->hasError()) {
-            return $this->_response->data['errcode'];
+        if (is_null($response)) {
+            $response = $this->_response;
+        }
+        if($this->hasError( $response )) {
+            return $response->data['errcode'];
         }
         return 0;
     }
@@ -158,10 +174,13 @@ class Component extends APIComponent
      *
      * @return void
      */
-    public function getErrorMessage()
+    public function getErrorMessage( $response = null)
     {
-        if($this->hasError()) {
-            return $this->_response->data['errmsg'];
+        if (is_null($response)) {
+            $response = $this->_response;
+        }
+        if($this->hasError( $response )) {
+            return $response->data['errmsg'];
         }
         return 'OK';
     }
@@ -173,16 +192,29 @@ class Component extends APIComponent
      *
      * @return bool|Data
      */
-    public function getData()
+    public function getData( $response = null )
     {
-        if($this->hasError()) {
+        if (is_null($response)) {
+            $response = $this->_response;
+        }
+        if($this->hasError( $response )) {
             return false;
         }
         return new Data([
-            'data' => $this->_response->data,
+            'data' => $response->data,
         ]);
     }
 
 
+
+    /**
+     * 获取执行结果
+     *
+     * @return Result
+     */
+    public function getResult()
+    {
+        return $this->_result;
+    }
 
 }

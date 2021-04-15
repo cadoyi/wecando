@@ -25,7 +25,7 @@ class MenuDel extends Api
      * 执行操作
      *
      * @param int $menuID  创建的个性化菜单 ID
-     * @return bool
+     * @return \wxapi\pub\base\Result
      */
     public function run( $menuID )
     {
@@ -38,7 +38,7 @@ class MenuDel extends Api
             ->setContent($menu)
             ->send();
 
-        return !$this->hasError();
+        return $this->result;
     }
 
 

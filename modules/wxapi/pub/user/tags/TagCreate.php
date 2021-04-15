@@ -27,7 +27,7 @@ class TagCreate extends Component
      * 执行创建标签操作
      *
      * @param string $name 标签名称
-     * @return \wxapi\pub\httpclient\Data
+     * @return \wxapi\pub\base\Result
      *     {   "tag":{ "id":134,//标签id "name":"广东"   } } 
      */
     public function run( $name )
@@ -41,7 +41,7 @@ class TagCreate extends Component
              ->setContent($content)
              ->send();
         
-        return $this->getData();
+        return $this->result;
     }
 
 }

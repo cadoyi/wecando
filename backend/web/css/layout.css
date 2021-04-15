@@ -1,0 +1,41 @@
+html,body {
+    font-size: 100%;
+}
+
+header.layui-header {
+    display: -ms-flexbox;
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+}
+
+header .header-title {
+    color: #efefef;
+    line-height: 60px;
+    width: 200px;
+    text-align: center;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+header .header-search {
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+}
+header .header-title:hover {
+    color: #fff;
+}
+
+.layui-layout .body-content {
+    margin-left: 200px;
+}
+
+.layui-layout-admin .layui-body {
+    bottom: 0;
+}
+.breadcrumb {
+    line-height: 2rem;
+    padding: 0 1rem;
+}

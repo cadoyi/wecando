@@ -37,7 +37,7 @@ class Info extends Component
     /**
      * 获取用户的基本信息
      *
-     * @return \wxapi\pub\httpclient\Data
+     * @return \wxapi\pub\base\Result
      */
     public function run()
     {
@@ -52,7 +52,7 @@ class Info extends Component
              ->setMethod('GET')
              ->send();
 
-        return $this->getData();
+        return $this->result;
     }
 
 }

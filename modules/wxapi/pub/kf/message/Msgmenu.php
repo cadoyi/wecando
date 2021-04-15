@@ -63,7 +63,7 @@ class Msgmenu extends Base
      * @param array  $list   列表内容
      * @param string $footer 底部内容
      * 
-     * @return bool
+     * @return \wxapi\pub\base\Result
      */
     public function run($header, $list, $footer)
     {
@@ -77,6 +77,6 @@ class Msgmenu extends Base
             ],
         ];
         $this->sendMessage($content);
-        return !$this->hasError();
+        return $this->result;
     }
 }

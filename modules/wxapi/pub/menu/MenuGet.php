@@ -24,7 +24,7 @@ class MenuGet extends Api
     /**
      * 执行自定义菜单
      *
-     * @return \wxapi\pub\httpclient\Data
+     * @return \wxapi\pub\base\Result
      * 
      */
     public function run()
@@ -34,7 +34,7 @@ class MenuGet extends Api
              ->setMethod('GET')
              ->setUrl($url)
              ->send();
-        return $this->getData();
+        return $this->result;
     }
 
 }

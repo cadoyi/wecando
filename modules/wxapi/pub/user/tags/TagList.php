@@ -26,7 +26,7 @@ class TagList extends Component
     /**
      * 查询创建的所有 tag
      *
-     * @return \wxapi\pub\httpclient\Data
+     * @return \wxapi\pub\base\Result
      *    {   
      *       "tags":[
      *             {       
@@ -56,7 +56,7 @@ class TagList extends Component
              ->setMethod('GET')
              ->setUrl($url)
              ->send();
-        return $this->getData();
+        return $this->result;
     }
     
 

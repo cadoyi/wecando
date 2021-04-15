@@ -27,7 +27,7 @@ class TagAddUsers extends Component
      *
      * @param int $tagID  标签的 ID
      * @param string|array $openids  
-     * @return bool
+     * @return \wxapi\pub\base\Result
      */
     public function run($tagID, $openids)
     {
@@ -48,7 +48,7 @@ class TagAddUsers extends Component
              ->setUrl($url)
              ->send();
 
-        return $this->hasError();
+        return $this->result;
     }
 
 

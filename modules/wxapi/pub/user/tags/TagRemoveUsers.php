@@ -27,7 +27,7 @@ class TagRemoveUsers extends Component
     /**
      * 批量从标签中移除用户
      *
-     * @return void
+     * @return \wxapi\pub\base\Result
      */
     public function run($tagID, $openids)
     {
@@ -49,7 +49,7 @@ class TagRemoveUsers extends Component
             ->setContent($content)
             ->send();
 
-        return !$this->hasError();
+        return $this->result;
     }
 
 }

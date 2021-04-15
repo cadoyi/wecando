@@ -26,7 +26,7 @@ class AccountAdd extends Api
     /**
      * 添加客服账号
      *
-     * @return bool
+     * @return \wxapi\pub\base\Result
      */
     public function run($account, $nickname, $password)
     {
@@ -43,7 +43,7 @@ class AccountAdd extends Api
              ->setMethod('POST')
              ->setContent($content)
              ->send();
-        return !$this->hasError();
+        return $this->result;
     }
 
 

@@ -40,11 +40,7 @@ return [
         'wxpub' => [
             'class' => 'wxapi\pub\Server',
             'redis' => 'redis',
-            'config' => [
-                'appid'      => 'wx9cedaa12bde60bce', 
-                'appsecret'  => '381779ba5dba11dc5cc82218df3df352',
-                'token'      => 'thisistokenforme',
-            ],
+            'config' => [],   // 敏感配置, 放 local 中
         ],
         'urlManager' => [
             'enablePrettyUrl' => true,

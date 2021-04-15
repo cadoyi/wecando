@@ -44,7 +44,7 @@ class MenuCreate extends Api
              ->setContent($menus)
              ->send();
         
-        return !$this->hasError();
+        return $this->result;
     }
 
 

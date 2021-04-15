@@ -31,7 +31,7 @@ class ListOpenids extends Component
     /**
      * 查询 openid 
      *
-     * @return \wxapi\pub\httpclient\Data
+     * @return \wxapi\pub\base\Result
      *    [
      *        "total" => 'xxx',       //公众号总用户数
      *        "count" => 'xxx',       // 本次拉取的个数
@@ -54,7 +54,7 @@ class ListOpenids extends Component
              ->setMethod('GET')
              ->send();
         
-        return $this->getData();
+        return $this->result;
     }
 
 }

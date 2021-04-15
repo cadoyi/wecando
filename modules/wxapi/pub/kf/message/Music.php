@@ -31,7 +31,7 @@ class Music extends Base
      *     musicurl
      *     hqmusicurl
      *     thumb_media_id
-     * @return bool
+     * @return \wxapi\pub\base\Result
      */
     public function run($mediaID, $meta = [])
     {
@@ -44,7 +44,7 @@ class Music extends Base
             'music' => $music,
         ];
         $this->sendMessage($content);
-        return !$this->hasError();
+        return $this->result;
     }
 
 }

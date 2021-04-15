@@ -57,7 +57,7 @@ class TokenServer extends Component
     /**
      * 执行
      *
-     * @return \wxapi\pub\httpclient\Data|false
+     * @return \wxapi\pub\base\Result
      *     access_token
      *     expires_in
      */
@@ -73,7 +73,8 @@ class TokenServer extends Component
              ->setMethod('GET')
              ->setUrl($url)
              ->send();
-        return $this->getData();
+
+        return $this->getResult();
     }
 
 

@@ -24,7 +24,7 @@ class Voice extends Base
      * 发送语音消息
      *
      * @param string $mediaID 语音的媒体 ID
-     * @return bool
+     * @return \wxapi\pub\base\Result
      */
     public function run($mediaID)
     {
@@ -36,6 +36,6 @@ class Voice extends Base
             ],
         ];
         $this->sendMessage($content);
-        return !$this->hasError();
+        return $this->result;
     }
 }

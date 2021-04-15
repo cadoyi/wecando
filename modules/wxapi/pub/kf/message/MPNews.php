@@ -25,7 +25,7 @@ class MPNews extends Base
      * 
      * @param string $mediaID 
      * 
-     * @return bool
+     * @return \wxapi\pub\base\Result
      */
     public function run( $mediaID )
     {
@@ -37,7 +37,7 @@ class MPNews extends Base
             ],
         ];
         $this->sendMessage($content);
-        return !$this->hasError();
+        return $this->result;
     }
 
 

@@ -30,7 +30,7 @@ class BatchInfo extends Component
      * @param string|array $openids  最多支持 100 条 openid
      * @param string $lang  返回的信息使用的语言版本
      * 
-     * @return \wxapi\pub\httpclient\Data
+     * @return \wxapi\pub\base\Result
      * 
      * 
      */
@@ -59,7 +59,7 @@ class BatchInfo extends Component
              ->setContent($content)
              ->send();
 
-        return $this->getData();
+        return $this->result;
     }
 
 }

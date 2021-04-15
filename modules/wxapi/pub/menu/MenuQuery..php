@@ -24,7 +24,7 @@ class MenuQuery extends Api
     /**
      * 查询自定义菜单接口
      *
-     * @return wxapi\pub\httpclient\Data
+     * @return \wxapi\pub\base\Result
      * 
      */
     public function run()
@@ -35,7 +35,7 @@ class MenuQuery extends Api
             ->setMethod('GET')
             ->setUrl($url)
             ->send();
-        return $this->getData();
+        return $this->result;
     }
 
 

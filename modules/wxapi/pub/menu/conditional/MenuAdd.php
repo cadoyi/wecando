@@ -26,7 +26,7 @@ class MenuAdd extends Api
      * 执行创建操作
      *
      * @param array $menus
-     * @return \wxapi\pub\httpclient\Data
+     * @return \wxapi\pub\base\Result
      *     menuid:  自定义菜单的 ID 值
      */
     public function run( $menus )
@@ -40,7 +40,7 @@ class MenuAdd extends Api
              ->setContent($menus)
              ->send();
 
-        return $this->getData();
+        return $this->result;
     }
 
 

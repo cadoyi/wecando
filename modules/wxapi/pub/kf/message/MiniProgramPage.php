@@ -22,7 +22,7 @@ class MiniProgramPage extends Base
     public $msgtype = 'miniprogrampage';
 
 
-    
+
 
 
     /**
@@ -33,7 +33,7 @@ class MiniProgramPage extends Base
      *     title
      *     pagepath
      *     thumb_media_id
-     * @return bool
+     * @return \wxapi\pub\base\Result
      */
     public function run($meta = [])
     {
@@ -44,7 +44,7 @@ class MiniProgramPage extends Base
         ];
         
         $this->sendMessage($content);
-        return !$this->hasError();
+        return $this->result;
     }
 
 

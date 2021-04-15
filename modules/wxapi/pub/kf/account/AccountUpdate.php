@@ -27,7 +27,7 @@ class AccountUpdate extends Api
     /**
      * 更新客服账号
      *
-     * @return bool
+     * @return \wxapi\pub\base\Result
      */
     public function run($account, $nickname, $password)
     {
@@ -45,7 +45,7 @@ class AccountUpdate extends Api
              ->setContent($content)
              ->send();
         
-        return !$this->hasError();
+        return $this->result;
     }
 
 

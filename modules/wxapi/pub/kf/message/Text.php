@@ -26,7 +26,7 @@ class Text extends Base
      * 发送文本消息
      *
      * @param string $text
-     * @return bool
+     * @return \wxapi\pub\base\Result
      */
     public function run( $text )
     {
@@ -39,7 +39,7 @@ class Text extends Base
         ];
 
         $this->sendMessage($content);
-        return !$this->hasError();
+        return $this->result;
     }
 
 }

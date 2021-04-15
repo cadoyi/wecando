@@ -29,7 +29,7 @@ class News extends Base
      *     url
      *     picurl
      * 
-     * @return bool
+     * @return \wxapi\pub\base\Result
      */
     public function run( $article = [])
     {
@@ -43,7 +43,7 @@ class News extends Base
             ],
         ];
         $this->sendMessage($content);
-        return !$this->hasError();
+        return $this->result;
     }
 
 

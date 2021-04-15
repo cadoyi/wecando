@@ -26,7 +26,7 @@ class ListUserTags extends Component
     /**
      * 获取用户的标签列表
      *
-     * @return \wxapi\pub\httpclient\Data
+     * @return \wxapi\pub\base\Result
      *    [
      *       'tagid_list' => [ ... ],
      *    ]
@@ -43,7 +43,7 @@ class ListUserTags extends Component
              ->setContent($content)
              ->send();
         
-        return $this->getData();
+        return $this->result;
     }
 
 

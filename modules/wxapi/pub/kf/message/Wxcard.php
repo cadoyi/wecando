@@ -25,7 +25,7 @@ class Wxcard extends Base
      * 发送卡券
      *
      * @param string $cardID  卡券的 ID 值
-     * @return bool
+     * @return \wxapi\pub\base\Result
      */
     public function run( $cardID )
     {
@@ -38,7 +38,7 @@ class Wxcard extends Base
         ];
 
         $this->sendMessage($content);
-        return !$this->hasError();
+        return $this->result;
     }
 
 

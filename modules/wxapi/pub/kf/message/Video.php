@@ -28,7 +28,7 @@ class Video extends Base
      *     thumb_media_id
      *     title
      *     description
-     * @return bool
+     * @return \wxapi\pub\base\Result
      */
     public function run($mediaID, $meta = [])
     {
@@ -41,6 +41,6 @@ class Video extends Base
             'video' => $video,
         ];
         $this->sendMessage($content);
-        return !$this->hasError();
+        return $this->result;
     }
 }

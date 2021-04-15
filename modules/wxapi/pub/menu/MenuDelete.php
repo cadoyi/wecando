@@ -25,7 +25,7 @@ class MenuDelete extends Api
     /**
      * 执行接口操作
      *
-     * @return bool
+     * @return \wxapi\pub\base\Result
      */
     public function run()
     {
@@ -35,7 +35,7 @@ class MenuDelete extends Api
             ->setMethod('GET')
             ->setUrl($url)
             ->send();
-        return !$this->hasError();
+        return $this->getResult();
     }
 
     

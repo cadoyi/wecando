@@ -25,7 +25,7 @@ class TagDelete extends Component
     /**
      * 执行删除操作
      *
-     * @return bool
+     * @return \wxapi\pub\base\Result
      */
     public function run( $id )
     {
@@ -43,7 +43,7 @@ class TagDelete extends Component
              ->setContent($content)
              ->send();
 
-        return !$this->hasError();
+        return $this->result;
     }
 
     

@@ -286,7 +286,7 @@ class BaseServer extends Component
     /**
      * 获取基础支持 access token
      *
-     * @return string
+     * @return string|false
      */
     public function getAccessToken()
     {
@@ -295,14 +295,14 @@ class BaseServer extends Component
              return $accessToken;
         }
         $server = $this->createObject(TokenServer::class);
-        $tokenData = $server->run();
-        if($tokenData === false) {
-            return $this->throwError($server);
+        $result = $server->run();
+        if($result->isOk) {
+            $accessToken = $result->get('access_token');
+            $expiresIn = $result->get('expires_in');
+            $this->redis->set($key, $accessToken, 'EX', $expiresIn - 200);
+            return $accessToken;
         }
-        $accessToken = $tokenData->get('access_token');
-        $expiresIn = $tokenData->get('expires_in');
-        $this->redis->set($key, $accessToken, 'EX', $expiresIn - 200);
-        return $accessToken;
+        return false;
     }
 
 

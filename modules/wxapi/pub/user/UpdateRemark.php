@@ -28,7 +28,7 @@ class UpdateRemark extends Component
      *
      * @param string $openid   用户的 openid
      * @param string $name   备注名
-     * @return bool
+     * @return \wxapi\pub\base\Result
      */
     public function run( $openid,  $name )
     {
@@ -46,7 +46,7 @@ class UpdateRemark extends Component
              ->setContent($content)
              ->send();
 
-        return !$this->hasError();
+        return $this->result;
     }
 
 

@@ -53,7 +53,7 @@ class RefreshToken extends Component
     /**
      * 执行刷新操作
      *
-     * @return \wxapi\pub\httpclient\Data|false
+     * @return \wxapi\pub\base\Result
      * { 
      *     "access_token":"ACCESS_TOKEN",
      *     "expires_in":7200,
@@ -77,7 +77,7 @@ class RefreshToken extends Component
         if($this->hasError()) {
             return false;
         }
-        return $this->getData();
+        return $this->result;
     }
 
     

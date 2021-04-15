@@ -27,7 +27,7 @@ class MenuMatch extends Api
      * 执行操作
      *
      * @param string $openid 用户的 openid
-     * @return \wxapi\pub\httpclient\Data 返回匹配的个性化菜单
+     * @return \wxapi\pub\base\Result 返回匹配的个性化菜单
      */
     public function run( $openid )
     {
@@ -40,7 +40,7 @@ class MenuMatch extends Api
              ->setContent($content)
              ->send();
 
-        return $this->getData();
+        return $this->result;
     }
 
 }

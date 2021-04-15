@@ -30,7 +30,7 @@ class AccountUpdateAvatar extends Api
     /**
      * 上传头像
      *
-     * @return bool
+     * @return \wxapi\pub\base\Result
      */
     public function run($file)
     {
@@ -47,7 +47,8 @@ class AccountUpdateAvatar extends Api
              ->setUrl($url)
              ->addFile('headimg', $file)
              ->send();
-        return !$this->hasError();
+             
+        return $this->result;
     }
 
     

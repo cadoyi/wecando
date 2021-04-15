@@ -42,7 +42,7 @@ class Userinfo extends Component
     /**
      * 获取用户信息
      *
-     * @return \wxapi\pub\httpclient\Data
+     * @return \wxapi\pub\base\Result
      * {   
      *     "openid": "OPENID",
      *     "nickname": NICKNAME,
@@ -68,7 +68,7 @@ class Userinfo extends Component
              ->setUrl($url)
              ->send();
 
-        return $this->getData();
+        return $this->result;
     }
 
     
