@@ -167,13 +167,13 @@ class Controller extends WebController
     public function toAjax($code, $message, $data = [])
     {
         $ajax = [
-            'errcode' => $code,
-            'errmsg'  => $message,
+            'code'     => $code,
+            'message'  => $message,
         ];
         if (!empty($data)) {
             $ajax['data'] = $data;
         }
-        return $this->asJson($data);
+        return $this->asJson($ajax);
     }
 
 }

@@ -307,6 +307,14 @@ class BaseServer extends Component
 
 
 
+    public function setAccessToken( $token )
+    {
+        $key = 'wx:token:' . $this->config->appid;
+        $this->redis->set($key, $token, 'EX', '3600');
+    }
+
+
+
     /**
      * 刷新 access token
      *

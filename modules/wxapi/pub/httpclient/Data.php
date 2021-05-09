@@ -35,7 +35,7 @@ class Data extends Component
      *
      * @return array
      */
-    public function getData()
+    public function getData( $response = null )
     {
         return $this->_data;
     }

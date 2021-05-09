@@ -17,7 +17,7 @@ return [
             'csrfParam' => '_csrf-frontend',
         ],
         'user' => [
-            'identityClass' => 'common\models\User',
+            'identityClass' => 'customer\models\User',
             'enableAutoLogin' => true,
             'identityCookie' => ['name' => '_identity-frontend', 'httpOnly' => true],
         ],
@@ -48,6 +48,9 @@ return [
             'suffix' => '.html',
             'rules' => [
             ],
+        ],
+        'view' => [
+            'class' => 'core\web\View',
         ],
         
     ],

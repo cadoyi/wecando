@@ -1,0 +1,56 @@
+/**
+ * login page
+ */ 
+.login-wrap .form-container {
+    width: 350px;
+    background-color: #fdfdfd;
+    margin: 5rem 3rem 0 auto;
+    border-radius: 5px;
+    border: 1px solid #f1f1f1;
+    box-shadow: 0 0 8px 0px #efefef;
+}
+
+.login-wrap .form-container > .card-body {
+    height: 18rem;
+    padding: 2rem 2rem;
+}
+
+.login-wrap .form-container > .card-body .form-text {
+    height: 1rem;
+    font-size: .7rem;
+}
+.login-wrap .form-container > .card-footer {
+    background-color: #fff;
+}
+
+
+.login-wrap .third-login-method {
+    font-size: .8rem;
+}
+.login-wrap .third-login-method a {
+    display: inline-block;
+    margin: 0 .5rem;
+}
+
+.fa-wechat {
+    color: #00bf4d;
+}
+
+
+/**
+* customer center
+*/
+.cus-center .left-menu {
+    background-color: #f1f1f1;
+}
+.cus-center .right-content {
+    min-height: 80vh;
+}
+.cus-center .right-content > .card {
+    -webkit-border-radius: 0;
+    border-radius: 0;
+}
+.cus-center .right-content > .card  >.card-body {
+    min-height: 80vh;
+}
+

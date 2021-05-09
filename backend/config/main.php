@@ -53,6 +53,9 @@ return [
             'rules' => [
             ],
         ],
+        'view' => [
+            'class' => 'core\web\View',
+        ]
     
     ],
     'params' => $params,
