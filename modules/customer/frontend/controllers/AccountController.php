@@ -5,7 +5,8 @@ namespace customer\frontend\controllers;
 use frontend\controllers\Controller;
 use Yii;
 use customer\frontend\models\PasswordLoginForm;
-
+use customer\frontend\models\SendCodeForm;
+use customer\frontend\models\CaptchaLoginForm;
 
 /**
  * 账户控制器
@@ -69,7 +70,31 @@ class AccountController extends Controller
      */
     public function actionLoginCaptcha()
     {
+        $model = new CaptchaLoginForm();
+        
+        if($model->load($this->request->post(), '') && $model->login()) {
+            return $this->_success();
+        }
+        $error = $model->getErrorMessage();
+        return $this->_error([1, $error]);
+    }
 
+
+
+    /**
+     * 发送验证码
+     *
+     * @return void
+     */
+    public function actionSendCode()
+    {
+        $username = $this->request->post('username');
+        $model = new SendCodeForm(['username' => $username]);
+        if(!$model->sendCode()) {
+            $error = $model->getErrorMessage();
+            return $this->_error([1, $error]);
+        }
+        return $this->_success();
     }
 
 

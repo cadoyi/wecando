@@ -12,7 +12,7 @@ use core\db\ActiveRecord;
  *
  * @author zhangyang <zhangyang@cadoyi.com>
  */
-class Email extends Account
+class Email extends PasswordAccount
 {
 
     /**
@@ -21,6 +21,19 @@ class Email extends Account
     public static function tableName()
     {
         return '{{%customer_account_email}}';
+    }
+
+
+
+    /**
+     * 设置用户名
+     *
+     * @param string $username
+     * @return void
+     */
+    public function setUsername($username)
+    {
+        $this->email = $username;
     }
 
 

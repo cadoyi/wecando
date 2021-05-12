@@ -31,23 +31,41 @@ var cado = {
 cado.message = (function(){
     var Message = function() {
         this.status = 0;
-        this.init();
+        this.id = 'cado_msg';
+        this.ele = null;
     };
     Message.prototype = {
-        init: function() {
-            this.status = 0;
+        _init: function() {
+            var self = this;
+            if(this.ele) {
+                return;
+            }
+            var html = '<div id="'+this.id+'" style="display:none;"><div class="msg"></div></div>';
+            this.ele = $(html);
+            $('body').append(this.ele);
+            this.ele.find('.msg').on('click', function( e ) {
+                self.ele.hide();
+            });
+        },
+        _display: function( content , timer ) {
+            this._init();
+            var self = this;
+            var defer = new $.Deferred();
+            this.ele.find('.msg').html(content);
+            this.ele.show();
+            if(typeof timer != 'number') { 
+                timer = 1500;
+            }
+            setTimeout(function() {
+                defer.resolve(content);
+            }, timer);
+            defer.done(function( content ) {
+               self.ele.hide();
+            });
+            return defer.promise();
         },
         message: function(content, timer) {
-            alert(content);
-            var defer = new $.Deferred();
-            if(typeof timer == 'number') {
-                setTimeout(function() {
-                    defer.resolve(content);
-                }, timer);
-            } else {
-                defer.resolve(content);
-            }
-            return defer.promise();
+            return this._display(content, timer);
         },
         info: function() {
             return this.message.apply(this, arguments);
@@ -61,27 +79,6 @@ cado.message = (function(){
     };
     return new Message();
 })();
-
-cado.click = function( click ) {
-    if(click === false) {
-        cado._s['click'] = false;
-        return false;
-    }
-    var result = cado._s['click'];
-    if(result) {
-        return true;
-    }
-    cado._s['click'] = true;
-    return false;
-};
-cado.loading = function( bool ) {
-    if(bool) {
-        console.log('load::begin');
-    } else {
-        console.log('load::end');
-        cado.click(false);
-    }
-};
 
 
 

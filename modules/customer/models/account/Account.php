@@ -17,8 +17,6 @@ use customer\models\User;
 abstract class Account extends ActiveRecord
 {
 
-
-
     /**
      * @inheritDoc
      */
@@ -50,18 +48,18 @@ abstract class Account extends ActiveRecord
 
 
 
-
-
     /**
-     * 验证密码
-     * 
-     * @param string $password
-     * @return bool
+     * 设置 user 对象
+     *
+     * @param User $user
+     * @return void
      */
-    public function validatePassword( $password )
+    public function setUser( $user )
     {
-        return Yii::$app->security->validatePassword($password, $this->password_hash);
+        $this->customer_id = $user->id;
+        $this->populateRelation('user', $user);
     }
+
 
     
 

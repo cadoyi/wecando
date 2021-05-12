@@ -83,7 +83,7 @@ body > #loading {
     height: 100%;
     background: transparent;
     font-size: 2rem;
-    z-index: 999;
+    z-index: 99999;
 }
 body.loading > #loading {
     display: -ms-flex;

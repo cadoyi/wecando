@@ -30,10 +30,10 @@ CustomerAsset::register($this);
             </ul>
         </div>
         <div class="card-body tab-content">
-            <div id="password_login" class="tab-pane fade active show">
+            <div id="password_login" class="tab-pane fade">
                 <?= $this->render('_password-login') ?>
             </div>
-            <div id="captcha_login" class="tab-pane fade">
+            <div id="captcha_login" class="tab-pane fade active show">
                 <?= $this->render('_captcha-login') ?>
             </div>
         </div>

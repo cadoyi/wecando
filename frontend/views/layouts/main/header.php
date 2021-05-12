@@ -5,15 +5,12 @@ use yii\helpers\Url;
 ?>
 <header class="header shadow-sm">
     <nav class="navbar navbar-expand navbar-light bg-white">
-        <a class="navbar-brand" href="#">Wecando</a>
+        <a class="navbar-brand" href="<?= Yii::$app->homeUrl ?>">Wecando</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
-                <li class="nav-item active">
-                    <a class="nav-link" href="<?= Yii::$app->homeUrl ?>">首页</a>
-                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">我的订单</a>
                 </li>
