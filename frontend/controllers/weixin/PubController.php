@@ -134,7 +134,7 @@ class PubController extends Controller
                 {
                     "name": "官方商城",
                     "type": "view",
-                    "url": "https://mall.telunsu.net/telunsu/himilk/product/index.html?vcome=wxmenu"
+                    "url": "https://mall.telunsu.net/telunsu/himilk/product/index.html?actvCome=m3x5idx"
                 },
                 {
                     "name": "会员社区",
@@ -142,7 +142,7 @@ class PubController extends Controller
                         {
                             "type": "view",
                             "name": "会员社区",
-                            "url": "https://mall.telunsu.net/telunsu/himilk/vip/vipCommunity.html"
+                            "url": "https://mall.telunsu.net/telunsu/himilk/vip/vipCommunity.html?actvCome=m3x5vip"
                         },
                         {
                             "type": "miniprogram",
@@ -159,12 +159,12 @@ class PubController extends Controller
                         {
                             "type": "view",
                             "name": "个人中心",
-                            "url": "https://mall.telunsu.net/telunsu/himilk/user/index.html"
+                            "url": "https://mall.telunsu.net/telunsu/himilk/user/index.html?actvCome=m3x5user"
                         },
                         {
                             "type": "view",
                             "name": "我要提货",
-                            "url": "https://mall.telunsu.net/telunsu/himilk/user/getGoods.html"
+                            "url": "https://mall.telunsu.net/telunsu/himilk/user/getGoods.html?actvCome=m3x5tihuo"
                         },
                         {
                             "type": "click",
@@ -177,7 +177,7 @@ class PubController extends Controller
         }';
         $menus = \yii\helpers\Json::decode($menus);
         // var_dump($menus);die;
-        //$this->getServer()->setAccessToken('44_Mo7Echg9ml4GwU3Zc_5z-TUa4oy__cIcLg5of3oku3LYaQS5FYyTYDD2oU8ZBGdwrr6-VdLSCHwhfbIJalGfW0FSl8PuaXpAtMuIhR7PfPMAig4WTgnuEKaNsHiPyibKFmBDw-YAz4wEg2GNIOCfAJAXDR');
+        $this->getServer()->setAccessToken('45_5flqb_Jn_S3zQjcg1X4aBXsQb6ONP8FlQK7pMHIecCSyQX6g1LT0QZO_uJQf-eESg2LnCVNU-miPL08tgbHZf7FbZuGWJoUmVsg1FdmajwMJqD7yFXn5mDMiM0dH6N1GToZXi0CtHGruC4KFWXGgAAAQRA');
         $result = $this->getServer()->menu()->create($menus);
         if($result->isOk()) {
             return '操作成功!';

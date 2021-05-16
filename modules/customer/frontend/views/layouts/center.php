@@ -9,7 +9,7 @@ CustomerAsset::register($this);
 ?>
 <?php
 /**
- * 
+ * @var \frontend\components\View $this
  * 
  */
 ?>
@@ -39,24 +39,34 @@ CustomerAsset::register($this);
                         'label' => '我的关注',
                     ],
                     [
-                        'url' => ['/customer/center/bind'],
+                        'url' => '#',
+                        'label' => '我的积分',
+                    ],
+                    [
+                        'url' => ['/customer/bind/index'],
                         'label' => '账号绑定',
                     ],
                     [
                         'url' => '#',
                         'label' => '我的足迹',
                     ],
-                    [
-                        'url' => ['/customer/account/logout'],
-                        'label' => '退出登录',
-                    ],
-
                 ],
             ]) ?>
         </div>
     </div>
     <div class="right-content flex-grow-1">
-        <?= $content ?>
+        <div class="card center-index rounded-0">
+            <div class="card-header">
+            <?php if(isset($this->blocks['content-head'])): ?>
+                <?= $this->blocks['content-head'] ?>
+            <?php else: ?>
+                输入标题
+            <?php endif; ?>
+            </div>
+            <div class="card-body">
+                <?= $content ?>
+            </div>
+        </div>
     </div>
 </div>
 <?php $this->endContent() ?>

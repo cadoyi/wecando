@@ -69,7 +69,7 @@ class PasswordAccount extends Account
         $self = new static([
             'username' => $username,
             'password' => $password,
-            'user'     => $user,
+            'customer'  => $user,
         ]);
         $self->save();
         return $self;

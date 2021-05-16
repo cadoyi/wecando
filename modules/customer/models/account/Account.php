@@ -41,7 +41,7 @@ abstract class Account extends ActiveRecord
      *
      * @return \yii\db\ActiveQuery
      */
-    public function getUser()
+    public function getCustomer()
     {
         return $this->hasOne(User::class, ['id' => 'customer_id']);
     }
@@ -54,10 +54,10 @@ abstract class Account extends ActiveRecord
      * @param User $user
      * @return void
      */
-    public function setUser( $user )
+    public function setCustomer( User $customer )
     {
-        $this->customer_id = $user->id;
-        $this->populateRelation('user', $user);
+        $this->customer_id = $customer->id;
+        $this->populateRelation('user', $customer);
     }
 
 

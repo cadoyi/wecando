@@ -96,7 +96,7 @@ class CaptchaLoginForm extends CaptchaForm
         }
         $this->clearCode();
         $user = $this->getUser();
-        $customer = $user->user;
+        $customer = $user->customer;
         return Yii::$app->user->login($customer);
     }
 

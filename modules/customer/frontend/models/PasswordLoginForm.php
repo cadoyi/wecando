@@ -113,8 +113,8 @@ class PasswordLoginForm extends Model
             return false;
         }
         $account = $this->getUser();
-        $user = $account->user;
-        return Yii::$app->user->login($user);
+        $customer = $account->customer;
+        return Yii::$app->user->login($customer);
     }
 
 

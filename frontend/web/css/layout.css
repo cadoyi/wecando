@@ -1,4 +1,6 @@
-
+html {
+    font-size: 14px;
+}
 html,body {
     height: 100%;
 }
@@ -17,7 +19,7 @@ header.header {
     z-index: 100;
 }
 header.header .nav-link {
-    font-size: .8rem;
+    font-size: .9rem;
 }
 
 
@@ -36,7 +38,7 @@ footer.footer {
     background-color: #f1f1f1;
 }
 footer.footer {
-    font-size: .8rem;
+    font-size: .9rem;
     background-color: #fff;
     border-top: 1px solid #ddd;
 }
@@ -47,7 +49,7 @@ footer div.col {
 
 footer div[title] {
     height: 60px;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     line-height: 60px;
     padding-left: 3rem;
     border-bottom: 1px solid #ddd;
@@ -62,7 +64,7 @@ footer div[title] + ul {
 
 footer div[title] + ul a {
     color: #777;
-    font-size: .9rem;
+    font-size: 1rem;
     line-height: 1.5rem;
 }
 footer .bottom-bar {
@@ -82,7 +84,7 @@ body > #loading {
     width: 100%;
     height: 100%;
     background: transparent;
-    font-size: 2rem;
+    font-size: 2.4rem;
     z-index: 99999;
 }
 body.loading > #loading {
